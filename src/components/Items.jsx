@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import items from "./../data/items";
+import { decode, encode } from "./../utils/json";
 
 export class Items extends Component {
   static propTypes = {};
@@ -24,6 +25,7 @@ export class Items extends Component {
       console.log(e);
       this.setState((oldState) => ({ ...oldState, modalOpened: false }));
     });
+    console.log("items", decode("items"));
   }
 
   componentDidUpdate() {
