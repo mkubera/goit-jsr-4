@@ -1,40 +1,31 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 
-export class Chuck extends Component {
+class Chuck extends Component {
   static propTypes = {};
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      joke: null,
-      dataFetched: false,
-    };
-  }
+  state = { joke: null };
 
   componentDidMount() {
-    // console.log(this.state.dataFetched);
-    // if (!this.state.dataFetched) {
-    return fetch("https://api.chucknorris.io/jokes/random")
-      .then((r) => r.json())
-      .then((d) => {
-        console.log(d);
-        this.setState((state) => ({
-          ...state,
-          joke: d.value,
-          dataFetched: true,
-        }));
+    console.log("componentDidMount");
+
+    fetch("https://api.chucknorris.io/jokes/random")
+      .then((res) => res.json())
+      .then(({ value }) => {
+        console.log(value);
+        this.setState((oldState) => ({ ...oldState, joke: value }));
       })
       .catch(console.log);
-    // }
   }
 
   render() {
+    console.log("render");
+
     return (
-      <div>
-        Chuck
-        <p>{this.state.joke === null ? "Loading..." : this.state.joke}</p>
-      </div>
+      <section>
+        <h3>Chuck</h3>
+        <p>{this.state.joke}</p>
+      </section>
     );
   }
 }

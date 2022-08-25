@@ -1,6 +1,8 @@
+import { nanoid } from "nanoid";
+
 const items = [
-  { id: 1, name: "Orange" },
-  { id: 2, name: "Apple" },
+  { id: nanoid(), name: "Orange" },
+  { id: nanoid(), name: "Apple" },
 ];
 
 export default items;

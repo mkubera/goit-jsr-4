@@ -1,61 +1,50 @@
-import PropTypes from "prop-types";
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { nanoid } from "nanoid";
 import items from "./../data/items";
-import { decode, encode } from "./../utils/json";
+import json from "./../utils/json";
 
 export class Items extends Component {
   static propTypes = {};
 
   state = {
     items: items,
-    hasError: false,
-    modalOpened: true,
   };
 
-  addItem = () =>
+  addItem = () => {
+    const newItem = { id: nanoid(), name: "Pineapple" };
+
     this.setState((oldState) => ({
       ...oldState,
-      items: [...oldState.items, { id: 3, name: "Pineapple" }],
-      // items: { hi: "there" },
+      items: [...oldState.items, newItem],
     }));
+  };
 
   componentDidMount() {
     console.log("componentDidMount");
     document.addEventListener("keydown", (e) => {
-      console.log(e);
       this.setState((oldState) => ({ ...oldState, modalOpened: false }));
     });
-    console.log("items", decode("items"));
+    console.log("items", json.decode("items"));
   }
 
   componentDidUpdate() {
     console.log("componentDidUpdate");
   }
 
-  componentDidCatch(error, info) {
-    console.log(info);
-    this.setState((oldState) => ({ ...oldState, hasError: true }));
-  }
-
   render() {
-    const { hasError, items } = this.state;
+    const { items } = this.state;
+
     return (
-      <>
-        {hasError ? (
-          <p>Has error</p>
-        ) : (
-          <div onKeyDown={console.log}>
-            <p>{this.state.modalOpened ? "opened" : "closed"}</p>
-            <input type="text" onKeyPress={console.log} />
-            <button onClick={this.addItem}>Add Item</button>
-            <ul>
-              {items.map(({ id, name }) => (
-                <li key={id}>{name}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </>
+      <section>
+        <h3>Items</h3>
+        <button onClick={this.addItem}>Add Item</button>
+        <ul>
+          {items.map(({ id, name }) => (
+            <li key={id}>{name}</li>
+          ))}
+        </ul>
+      </section>
     );
   }
 }

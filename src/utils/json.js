@@ -3,4 +3,6 @@
 const decode = (key) => JSON.parse(localStorage.getItem(key));
 const encode = (key, data) => JSON.stringify(localStorage.setItem(key, data));
 
-export { encode, decode };
+const json = { encode, decode };
+
+export default json;

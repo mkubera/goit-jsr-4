@@ -1,18 +1,15 @@
-// import logo from "./logo.svg";
 import "./App.css";
 import Chuck from "./components/Chuck";
+import Chucks from "./components/Chucks";
 import Items from "./components/Items";
-// import PureTest from "./components/PureTask";
 
 const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        {/* 
-        <PureTest />
-         */}
+        {/* <Items /> */}
         {/* <Chuck /> */}
-        <Items />
+        <Chucks />
       </header>
     </div>
   );
