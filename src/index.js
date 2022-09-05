@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { UserProvider } from "./contexts/userContext";
+import { BrowserRouter } from "react-router-dom";
 
 // In React 18 <React.StrictMode> triggers componentDidMount twice
 // (changed from React 17)
@@ -18,7 +20,11 @@ const StrictMode = ({ hasReusableState, children }) => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <StrictMode hasReusableState={!true}>
-    <App />
+    <UserProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </UserProvider>
   </StrictMode>
 );
 
