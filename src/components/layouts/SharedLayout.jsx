@@ -9,12 +9,15 @@ const SharedLayout = (props) => {
     <div className="App">
       <header className="App-header">
         <h1>Shared Layout</h1>
-        <ul>
+        <ul className="App-nav">
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/albums/1">Album 1</Link>
+          </li>
+          <li>
+            <Link to="/users/login">Log In</Link>
           </li>
           {userIds.map((userId) => (
             <li>
