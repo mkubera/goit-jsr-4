@@ -6,7 +6,7 @@ import Chucks from "./components/Chucks";
 import Items from "./components/Items";
 import Title from "./components/Title";
 import User from "./components/user/User";
-import Home from "./components/Home";
+import HomePage from "./components/pages/home/HomePage";
 import NotFound from "./components/NotFound";
 import SharedLayout from "./components/layouts/SharedLayout";
 import Avatar from "./components/user/Avatar";
@@ -16,7 +16,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />} />
+        <Route index element={<HomePage />} />
         <Route path="users/login" element={<Login />} />
         <Route path="users/:userId" element={<User />} />
         <Route path="users/:userId/avatar" element={<Avatar />} />

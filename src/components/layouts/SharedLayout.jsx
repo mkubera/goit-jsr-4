@@ -8,7 +8,6 @@ const SharedLayout = (props) => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Shared Layout</h1>
         <ul className="App-nav">
           <li>
             <Link to="/">Home</Link>
@@ -26,9 +25,19 @@ const SharedLayout = (props) => {
             </li>
           ))}
         </ul>
-        <hr />
+
+        <p>Outlet:start</p>
+
         <Outlet />
+
+        <p>Outlet:end</p>
       </header>
+      <footer>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga,
+        inventore! Distinctio suscipit nemo earum nobis hic tempore temporibus
+        perferendis impedit ab, adipisci velit accusantium cupiditate aliquid
+        optio voluptatem officia? Quam.
+      </footer>
     </div>
   );
 };
