@@ -19,7 +19,7 @@ const SharedLayout = (props) => {
             <Link to="/users/login">Log In</Link>
           </li>
           {userIds.map((userId) => (
-            <li>
+            <li key={userId}>
               <Link to={`/users/${userId}`}>User {userId}</Link>{" "}
               <Link to={`/users/${userId}/avatar`}>(avatar)</Link>
             </li>

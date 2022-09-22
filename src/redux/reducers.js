@@ -1,22 +1,18 @@
+import { createReducer } from "@reduxjs/toolkit";
+import { INCREMENT, DECREMENT, RESET } from "./actions";
 import { INIT_COUNT } from "./inits";
 
 // ------------- REDUCERS
 // Elm: UPDATE
-// const reducer = (oldState = {}, action) => {
-//   const newState = { ...oldState };
-//   return newState;
-// };
 
-const countReducer = (oldState = INIT_COUNT, action) => {
-  switch (action.type) {
-    case "INCREMENT":
-      return oldState + 1;
-    case "DECREMENT":
-      return oldState - 1;
+const increment = (oldState, { payload }) => oldState + payload;
+const decrement = (oldState, { payload }) => oldState - payload;
+const reset = () => INIT_COUNT;
 
-    default:
-      return oldState;
-  }
-};
+const countReducer = createReducer(INIT_COUNT, {
+  [INCREMENT]: increment,
+  [DECREMENT]: decrement,
+  [RESET]: reset,
+});
 
 export { countReducer };
