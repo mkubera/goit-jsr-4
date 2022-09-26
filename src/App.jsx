@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Album from "./components/Album";
@@ -12,8 +14,17 @@ import SharedLayout from "./components/layouts/SharedLayout";
 import Avatar from "./components/user/Avatar";
 import Login from "./components/user/Login";
 import Counter from "./components/Counter";
+import fetchCounter from "./redux/operations";
 
 const App = () => {
+  // INITIAL FETCH
+  // happens when the app starts
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCounter());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
