@@ -21,4 +21,22 @@ const fetchCounter = createAsyncThunk(
   }
 );
 
-export default fetchCounter;
+const fetchTasks = createAsyncThunk(
+  "tasks/fetchAll",
+  // Use the underscore as the name of the first parameter,
+  // because in this operation we do not need it
+  async (_, punkAPI) => {
+    try {
+      const { data } = await axios.get("/tasks");
+      console.log(data);
+      return data;
+    } catch (e) {
+      // If the request is mistaken, return the promise
+      // which will be rejected with the text of the error
+      console.log(e);
+      // return punkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export { fetchCounter, fetchTasks };

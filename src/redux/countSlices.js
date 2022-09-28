@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { INIT_COUNT } from "./inits";
-import fetchCounter from "./operations";
+import { fetchCounter } from "./operations";
 
 const incrementFn = (state, { payload }) => {
   state.count = state.count + payload;

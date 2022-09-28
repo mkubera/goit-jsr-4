@@ -1,21 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
-import slices from "./../redux/slices";
-import fetchCounter from "./../redux/operations";
+import countSlices from "../redux/countSlices";
+import { fetchCounter } from "./../redux/operations";
 
 const Counter = () => {
   const count = useSelector(({ counter: { count } }) => count);
   const dispatch = useDispatch();
 
   const increment = (n) => {
-    dispatch(slices.increment(n));
+    dispatch(countSlices.increment(n));
   };
   const decrement = (n) => {
-    dispatch(slices.decrement(n));
+    dispatch(countSlices.decrement(n));
   };
   const reset = () => {
-    dispatch(slices.reset());
+    dispatch(countSlices.reset());
   };
   const fetch = () => {
     dispatch(fetchCounter());

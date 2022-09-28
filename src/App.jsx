@@ -14,7 +14,8 @@ import SharedLayout from "./components/layouts/SharedLayout";
 import Avatar from "./components/user/Avatar";
 import Login from "./components/user/Login";
 import Counter from "./components/Counter";
-import fetchCounter from "./redux/operations";
+import Tasks from "./components/Tasks";
+import { fetchCounter } from "./redux/operations";
 
 const App = () => {
   // INITIAL FETCH
@@ -28,7 +29,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Counter />} />
+        <Route index element={<Tasks />} />
         {/* <Route index element={<HomePage />} /> */}
         <Route path="users/login" element={<Login />} />
         <Route path="users/:userId" element={<User />} />

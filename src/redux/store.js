@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import slices from "./slices";
+import countSlices from "./countSlices";
+import taskSlices from "./taskSlices";
 
 const store = configureStore({
-  reducer: { counter: slices.reducer },
+  reducer: { counter: countSlices.reducer, tasks: taskSlices.reducer },
 });
 
 export default store;
