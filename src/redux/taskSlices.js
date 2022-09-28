@@ -2,16 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { INIT_TASKS } from "./inits";
 import { fetchTasks } from "./operations";
 
-// const incrementFn = (state, { payload }) => {
-//   state.count = state.count + payload;
-// };
-// const decrementFn = (state, { payload }) => {
-//   state.count = state.count - payload;
-// };
-// const resetFn = (state) => {
-//   state.count = INIT_COUNT;
-// };
-
 const countSlice = createSlice({
   name: "tasks",
   initialState: {
@@ -20,17 +10,12 @@ const countSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  reducers: {
-    // increment: incrementFn,
-    // decrement: decrementFn,
-    // reset: resetFn,
-  },
+  reducers: {},
   extraReducers: {
     [fetchTasks.pending](state, action) {
       state.isLoading = true;
     },
     [fetchTasks.fulfilled](state, { payload }) {
-      console.log(payload);
       state.isLoading = false;
       state.error = null;
       state.tasks = payload;
@@ -42,18 +27,8 @@ const countSlice = createSlice({
   },
 });
 
-const {
-  // actions: {
-  //   increment,
-  //   decrement,
-  //   reset,
-  // },
-  reducer,
-} = countSlice;
+const { reducer } = countSlice;
 
 export default {
   reducer,
-  // increment,
-  // decrement,
-  // reset,
 };

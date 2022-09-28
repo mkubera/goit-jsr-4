@@ -4,6 +4,10 @@ import { useSelector } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
 import { selectTasks, selectTasksFilter } from "../redux/selects";
 
+// createSelector
+// przyjmuje 2 argumenty
+// 1. array select'ow
+// 2. callback function, ktora uzywa danych zwroconych z select'ow
 const selectCompletedTasks = createSelector(
   // selects, ktore zwracaja dane
   // selectTasks zwraca tasks (Array of Tasks)
